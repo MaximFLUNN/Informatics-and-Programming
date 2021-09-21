@@ -1,0 +1,3 @@
+﻿  Task1.c
+D:\GitHub\MaximFLUNN\Informatics-and-Programming\DeadLineTasks\DeadLineTasks24092021\Task0\Task1.c(94,11): warning C4013: system: нет определения; предполагается "extern" с возвратом типа "int"
+  Task1.vcxproj -> D:\GitHub\MaximFLUNN\Informatics-and-Programming\DeadLineTasks\DeadLineTasks24092021\Debug\Task1.exe
