@@ -46,15 +46,19 @@ int main() {
 				return 0;
 			}
 			scanf("%c", &simbol);
-			if (simbol == '>' & number != 500) {
-				minhn = HN;
+			if (simbol == '>' & number == 500 || simbol == '<' & number == 500) {
+				printf("\nYou are cheating!\n");
+				return 0;
+			}
+			if (simbol == '>') {
+				minhn = HN + 1;
 				HN += hn / 2;
 				hn /= 2;
 				printf("I think it's %d (range: %d - %d) | ", HN, minhn, maxhn);
 				attempts++;
 			}
-			if (simbol == '<' & number != 500) {
-				maxhn = HN;
+			if (simbol == '<') {
+				maxhn = HN - 1;
 				HN -= hn / 2;
 				hn /= 2;
 				printf("I think it's %d (range: %d - %d) | ", HN, minhn, maxhn);
@@ -62,17 +66,13 @@ int main() {
 			}
 			if (simbol == '=') {
 				if (HN == number) {
-					printf("\nYeah, im won!\n");
+					printf("\nYeah, im won!\nAttempts: %d\n", attempts);
 					return 0;
 				}
 				if (HN != number) {
 					printf("\nERROR number\n");
 					return 0;
 				}
-			}
-			if (simbol == '>' & number == 500 || simbol == '<' & number == 500) {
-				printf("\nYou are cheating!\n");
-				return 0;
 			}
 		}
 		while (maxhn - minhn >= 1) {
@@ -103,7 +103,7 @@ int main() {
 			}
 			if (simbol == '=') {
 				if (HN == number) {
-					printf("\nYeah, im won!\nAttempts: %d", attempts);
+					printf("\nYeah, im won!\nAttempts: %d\n", attempts);
 					system("pause");
 					return 0;
 				}
