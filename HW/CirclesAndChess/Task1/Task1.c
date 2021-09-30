@@ -86,11 +86,11 @@ int main()
         break;
     }
     printf("All list:\n");
-    if (n1 == 1) { printf("-> King\n"); } else { }
-    if (n2 == 1) { printf("-> Elephnt\n"); } else { }
-    if (n3 == 1) { printf("-> Rook\n"); } else { }
-    if (n4 == 1) { printf("-> Queen\n"); } else { }
-    if (n5 == 1) { printf("-> Hourse\n"); } else { }
+    if (n1 == 1) { printf("-> King\n"); }
+    if (n2 == 1) { printf("-> Elephnt\n");}
+    if (n3 == 1) { printf("-> Rook\n"); }
+    if (n4 == 1) { printf("-> Queen\n"); }
+    if (n5 == 1) { printf("-> Hourse\n"); }
     system("PAUSE");
 
     return 0;
