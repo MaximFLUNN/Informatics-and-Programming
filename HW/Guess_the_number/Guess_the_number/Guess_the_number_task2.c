@@ -30,15 +30,15 @@ int main() {
 		}
 	}
 	if (mode == 2) {
-		maxhn = 1000;
-		minhn = 1;
+		maxhn = 1001;
+		minhn = 0;
 		printf("Input number: ");
 		scanf("%d", &number);
 		if (number > 1000 || number < 1) {
 			printf("ERROR number!");
 			return 0;
 		}
-		printf("I think it's %d (%d - %d) | ", HN, minhn, maxhn);
+		printf("I think it's %d (range: %d - %d) | ", HN, minhn + 1, maxhn - 1);
 		attempts = 1;
 		while (maxhn - minhn > 10) {
 			if (number > maxhn || number < minhn) {
@@ -54,14 +54,14 @@ int main() {
 				minhn = HN + 1;
 				HN += hn / 2;
 				hn /= 2;
-				printf("I think it's %d (range: %d - %d) | ", HN, minhn, maxhn);
+				printf("I think it's %d (range: %d - %d) | ", HN, minhn - 1, maxhn - 1 );
 				attempts++;
 			}
 			if (simbol == '<') {
 				maxhn = HN - 1;
 				HN -= hn / 2;
 				hn /= 2;
-				printf("I think it's %d (range: %d - %d) | ", HN, minhn, maxhn);
+				printf("I think it's %d (range: %d - %d) | ", HN, minhn + 1 , maxhn + 1);
 				attempts++;
 			}
 			if (simbol == '=') {
@@ -88,7 +88,7 @@ int main() {
 					printf("\nERROR number!\n");
 					return 0;
 				}
-				printf("I think it's %d (range: %d - %d) | ", HN, minhn, maxhn);
+				printf("I think it's %d (range: %d - %d) | ", HN, minhn - 1, maxhn - 1 );
 				attempts++;
 			}
 			if (simbol == '<') {
@@ -98,7 +98,7 @@ int main() {
 					printf("\nERROR number!\n");
 					return 0;
 				}
-				printf("I think it's %d (range: %d - %d) | ", HN, minhn, maxhn);
+				printf("I think it's %d (range: %d - %d) | ", HN, minhn + 1, maxhn + 1);
 				attempts++;
 			}
 			if (simbol == '=') {
