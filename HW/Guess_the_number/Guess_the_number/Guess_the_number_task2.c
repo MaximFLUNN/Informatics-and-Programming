@@ -8,6 +8,8 @@ int main() {
 	attempts = 0;
 	HN = 500;
 	hn = 500;
+	printf("Mode one: The computer hides the number and you are looking for it\n");
+	printf("Mode two: you hide the number, and the computer looks for it\n");
 	printf("Select mode (1 or 2): ");
 	scanf("%d", &mode);
 	if (mode > 2 || mode < 1) {
