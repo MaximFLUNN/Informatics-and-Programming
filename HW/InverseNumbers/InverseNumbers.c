@@ -16,7 +16,6 @@ int main() {
 			isError = (number <= 0);
 
 		} while (isError);
-		int cicle = 1;
 		int inverse = 0;
 		while (number) {
 			inverse *= 10;
@@ -24,6 +23,7 @@ int main() {
 			number = number / 10;
 		}
 		if (isWork) printf("\nResult: %d\n\n", inverse);
+		if (!isWork) printf("\n\nEXIT\n\n");
 	}
 	return 0;
 }
