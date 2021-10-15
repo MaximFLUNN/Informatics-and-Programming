@@ -7,7 +7,7 @@ int main() {
 	scanf("%d %d", &k, &n);
 	int* All = (int*)malloc(n * sizeof(int));
 	int* Crytie = (int)malloc(k * sizeof(int));
-	for (int i = 0; i < n; i++) {
+	for (i = 0; i < n; i++) {
 		printf("input score user (%d): ", i + 1);
 		scanf("%d %d %d", &y1, &y2, &y3);
 		All[i] = y1 + y2 + y3;
@@ -29,7 +29,7 @@ int main() {
 	}
 	printf("Prohodnoy ball - %d", All[k - 1]);
 	printf("\nList of applicants: ");
-	for (int i = 0; i < k; i++) {
+	for (i = 0; i < k; i++) {
 		printf("%d ", Crytie[i] + 1);
 	}
 
