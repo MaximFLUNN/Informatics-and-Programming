@@ -1,14 +1,15 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <math.h>
 int main() {
 	int n, k, y1, y2, y3, i, g, x;
 	printf("Input number (k - N): ");
-	scanf_s("%d %d", &k, &n);
+	scanf("%d %d", &k, &n);
 	int* All = (int*)malloc(n * sizeof(int));
-	int* Crytie = (int)malloc(n * sizeof(int));
+	int* Crytie = (int)malloc(k * sizeof(int));
 	for (int i = 0; i < n; i++) {
 		printf("input score user (%d): ", i + 1);
-		scanf_s("%d %d %d", &y1, &y2, &y3);
+		scanf("%d %d %d", &y1, &y2, &y3);
 		All[i] = y1 + y2 + y3;
 	}
 	for (i = 0; i < n; i++) {
