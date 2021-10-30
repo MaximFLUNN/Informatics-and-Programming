@@ -1,13 +1,13 @@
 
 /*
-ѕостановка задачи.
+Problem statement.
 
-–еализована некотора€ программа, работающа€ с матричными операци€ми.
+Some program has been implemented that works with matrix operations.
 
-ѕрограммист начал работать над ней и пон€л, что в ней много дублировани€ кода.
-ќн посмотрел свой код и не увидел проблем в самом коде. „тобы исправить
-проблему дублировани€ он решил вынести часть кода в функции.
-ѕомогите ему в этом, а также допишите функционал, который он не успел.
+The programmer started working on it and realized that there was a lot of code duplication in it.
+He looked at his code and saw no problems in the code itself. To fix the
+duplication problem, he decided to take out part of the code in the function.
+Help him with this, and also add the functionality that he did not have time to.
 
 */
 
@@ -15,24 +15,24 @@
 #include <malloc.h>
 #include <stdlib.h>
 #include <time.h>
-//Powered MaximFLUNN
+//Powered MaximFLUNN 3821B1PR2 Update ENG language
 /// <summary>
-/// генераци€ рандомного числа из указанного диапозона
+/// generating a random number from a specified range
 /// </summary>
-/// <param name="maximum">максимальное допустимое значение рандома</param>
-/// <param name="minimun">минимальное допустимое значение рандома</param>
-/// <returns>сгенерированное случайное значение</returns>
+/// <param name="maximum">maximum allowable random value</param>
+/// <param name="minimun">minimum allowable random value</param>
+/// <returns>generated random value</returns>
 int generateRandNumber(int max, int min) {
     int value = min + rand() % (max - min + 1);
     return value;
 }
 
 /// <summary>
-/// выделение указаного размера пам€ти
+/// allocation of the specified memory size
 /// </summary>
-/// <param name="matrix">матрица</param>
-/// <param name="n">количество строк</param>
-/// <param name="m">количество столбцов</param>
+/// <param name="matrix">matrix</param>
+/// <param name="n">number of rows</param>
+/// <param name="m">number of columns</param>
 int** setMemory(int** matrix, int n, int m) {
     matrix = (int**)malloc(n * sizeof(int*));
     for (int i = 0; i < n; i++)
@@ -41,11 +41,11 @@ int** setMemory(int** matrix, int n, int m) {
 }
 
 /// <summary>
-/// вывод матрицы на экран
+/// matrix output to the screen
 /// </summary>
-/// <param name="matrix">матрица</param>
-/// <param name="n">количество строк</param>
-/// <param name="m">количество столбцов</param>
+/// <param name="matrix">matrix</param>
+/// <param name="n">number of rows</param>
+/// <param name="m">number of columns</param>
 void printMatrix(int** matrix, int n, int m) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
@@ -60,7 +60,7 @@ void printVector(int x, int y) {
 }
 
 /// <summary>
-/// умножение матрицы на число
+/// multiplying a matrix by a number
 /// </summary>
 /// <param name="matrix"></param>
 /// <param name="n"></param>
@@ -177,7 +177,7 @@ int main() {
     matrix_A = createMatrix(matrix_A, N, M, max, min, 'A');
     matrix_B = createMatrix(matrix_B, M, K, max, min, 'B');
     value = generateRandNumber(max, min);
-    // умножение матрицы на число
+    // multiplying a matrix by a number
 
     result = setMemory(result, N, M);
     result = multMatrixOnNumber(matrix_A, N, M, &value);
@@ -185,23 +185,23 @@ int main() {
     printMatrix(result, N, M);
     freeMemory(result, N, M);
 
-    // транспонирование матрицы
+    // matrix transposition
     result = setMemory(result, M, N);
     result = matrixTransposition(matrix_A, M, N);
     printf("\nMatrix AT =\n");
     printMatrix(result, M, N);
-    // очищение результата после вывода
+    // clearing the result after output
     freeMemory(result, M, N);
 
-    // умножение двух матриц
+    // multiplication of two matrices
     result = setMemory(result, N, K);
     result = multTwoMatrix(matrix_A, matrix_B, N, K, M);
     printf("\nMatrix AxB =\n");
     printMatrix(result, N, K);
-    // очищение результата после вывода
+    // clearing the result after output
     freeMemory(result, N, K);
 
-    // сложение двух матриц
+    // addition of two matrices
     if (N == M && M == K) {
         result = setMemory(result, N, M);
         result = additionTwoMatrix(matrix_A, matrix_B, N, M);
@@ -219,22 +219,22 @@ int main() {
     inputVector(&ax, &ay);
     inputVector(&bx, &by);
 
-    // умножение вектора на число
+    // multiplying a vector by a number
     printf("\nVector a*%d = ", value);
     multVectorOnNumber(&resx, &resy, ax, ay, value);
     printVector(resx, resy);
 
-    // сложение двух векторов
+    // addition of two vectors
     printf("\nVector a+b = ");
     additionTwoVectors(&resx, &resy, ax, ay, bx, by);
     printVector(resx, resy);
 
-    // умножение двух векторов
+    // multiplication of two vectors
     printf("\nVector a*b = ");
     multTwoVectors(&resx, &resy, ax, ay, bx, by);
     printVector(resx, resy);
 
-    // очищение всей выделенной пам€ти
+    // clearing all allocated memory
     freeMemory(matrix_A, N, M);
     freeMemory(matrix_B, M, K);
 
