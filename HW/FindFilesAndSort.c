@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <windows.h>
 #include <stdio.h>
 #define MAX_INPUT_LENGTH 255
@@ -18,6 +19,10 @@ int main() {
     }
     tmp[size] = 0;
     a = FindCountNumbers(tmp, a); // File count
+    if (a > 899) {
+        printf("\nNumber of files exceeded, programm closed!\n");
+        return 0;
+    }
     // Memory allocation
     char** allname = (char**)malloc(a * sizeof(char*));
     for (int i = 0; i < a; i++) {
@@ -27,7 +32,12 @@ int main() {
     FindRecursive(tmp, tmp, n, allname, allsize); // File find
     printf("\nCount files: %d\n", a);
     // Select method sort
-    int flagselect = 0;
+    wchar_t pt[100];
+    int flagselect = 0, countflag = 0;
+    if (a > 20) {
+        printf("\nThe number of files is more than 20 so the output is implemented in a text file\n");
+        countflag = 1;
+    }
     if (a == 0) flagselect = 2;
     int time;
     while (flagselect == 0) {
@@ -61,9 +71,25 @@ int main() {
     }
     // Print sorted array
     if (flagselect == 1) {
-        for (int i = 0; i < a; i++) {
-            if (allsize[i] > 0) printf("Sorted: %-38s | %d Bite\n", allname[i], allsize[i]);
-            else printf("Sorted: %-38s | Folder\n", allname[i]);
+        if (countflag == 0) {
+            for (int i = 0; i < a; i++) {
+                if (allsize[i] > 0) printf("Sorted: %-38s | %d Bite\n", allname[i], allsize[i]);
+                else printf("Sorted: %-38s | Folder\n", allname[i]);
+            }
+        }
+        else {
+            FILE* file = fopen("Result.txt", "w");
+            for (int i = 0; i < a; i++) {
+                if (allsize[i] > 0) fprintf(file, "Sorted: %-38s | %d Bite\n", allname[i], allsize[i]);
+                else fprintf(file, "Sorted: %-38s | Folder\n", allname[i]);
+            }
+            if (time > 0) {
+                fprintf(file, "\nTime of work: %d ms\n\n", time);
+            }
+            else {
+                fprintf(file, "\nTime of work: < 1 ms\n\n");
+            }
+            fclose(file);
         }
         if (time > 0) {
             printf("\nTime of work: %d ms\n\n", time);
@@ -81,27 +107,27 @@ int main() {
     // Exit or restart
     system("PAUSE");
     system("cls");
-        while (flagselect != 2) {
-            printf("Restart? (0/1)\n-> ");
-            char yn = getch();
-            printf("%c\n", yn);
-            if (yn == '1') {
-                system("cls");
-                flagselect = 2;
-                main();
-            }
-            else if (yn == '0') {
-                system("cls");
-                printf("Closed\n\n\n");
-                return 0;
-            }
-            else
-            {
-                printf("Error, try again!\n");
-            }
+    while (flagselect != 2) {
+        printf("Restart? (0/1)\n-> ");
+        char yn = getch();
+        printf("%c\n", yn);
+        if (yn == '1') {
+            system("cls");
+            flagselect = 2;
+            main();
         }
+        else if (yn == '0') {
+            system("cls");
+            printf("Closed\n\n\n");
+            return 0;
+        }
+        else
+        {
+            printf("Error, try again!\n");
+        }
+    }
 }
-int FindCountNumbers(wchar_t* path, int a){
+int FindCountNumbers(wchar_t* path, int a) {
     int size = wcslen(path);
     WIN32_FIND_DATA finddata;
     wchar_t p[512], buf[512], pathTMP[MAX_INPUT_LENGTH];
@@ -180,7 +206,6 @@ int FindRecursive(wchar_t* path, wchar_t* rootpath, int n, char** allname, int* 
                     allname[n][sizen] = 0;
                 }
                 allsize[n] = finddata.nFileSizeLow;
-                //printf("\n\n%s | %d bite\n\n", allname[n], allsize[n]);
                 n++;
             }
         } while (FindNextFile(hFind, &finddata));
@@ -317,3 +342,6 @@ void sortselection(int* allsize, char** allname, int a, char* tempname) {
         }
     }
 }
+
+//Вывод в file 
+// sort
