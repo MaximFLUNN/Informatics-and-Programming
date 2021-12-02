@@ -1,3 +1,7 @@
+﻿/*
+                | Copyright 2021 | MaximFLUNN | Maxim Filatov Group: 3821B1PR2 |
+                |      GitHub profile link: https://github.com/MaximFLUNN      |
+*/
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <math.h>
