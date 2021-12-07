@@ -10,17 +10,27 @@
 #include "Source_code_Func_Taylor.h"
 #include "Source_code_localization.h"
 
-// default settings
-
 #define PI 3.1415926535897931
 
 // [ENG] Variables | [RU] Переменные |
-float eps = 0.000001;
-int N = 1000, SelectFunc, SelectMode, i = 0, language, mode, settings, Nmax = 25, best_experiment_number;
-double x = 11, xtmp = 0, best_experiment_error = 999999.999999;
+float eps;
+int N, SelectFunc, SelectMode, i, language, mode, settings, Nmax, Number_experiment;;
+double x, xtmp, X_clone, Best_result_error;;
 
 // [ENG] Language selection function | [RU] Функция выбора языка |
 int Select_language() {
+
+    // default settings
+    srand(time(NULL));
+    setlocale(LC_ALL, "Russian");
+    N = 1000;
+    eps = 0.000001;
+    Best_result_error = 99999999;
+    Nmax = 25;
+    x = rand() % 999 + 1;
+    i = xtmp = 0;
+    SelectFunc = settings = language = mode = 0;
+
     printf("| Select Language (Eng: 1 | Ru: 2)\n| Enter: ");
     if (scanf("%d", &language) != 1) {
         while (fgetc(stdin) != '\n') continue;
@@ -29,8 +39,6 @@ int Select_language() {
         printf("| \n| [Warning - select language] \n| You entered a non-existent value, try againg!\n| \n");
         Select_language();
     }
-    srand(time(NULL));
-    setlocale(LC_ALL, "Russian");
 }
 
 // [ENG] Mode selection | [RU] Выбор режима |
@@ -74,7 +82,7 @@ int Select_settings() {
         Select_Settings_L_Custom_2(language);
         N = x = eps = -9999999;
         if (mode == 2) {
-            x = 11;
+            x = rand() % 999 + 1;
             eps = 0.000001;
             Nmax = 25;
         }
@@ -85,6 +93,7 @@ int Select_settings() {
         Select_Settings_L_Custom_2_Access(language, N, x, eps);
     }
     if (x > PI) {
+        X_clone = x;
         while (xtmp < x) xtmp += PI;
         x -= xtmp;
     }
@@ -174,14 +183,16 @@ double Calculating_mode_2() {
     if (mode == 2) {
         for (i = 0; i < Nmax; i++) {
             final_result = func[SelectFunc - 1](x, eps = 0.000001 * (rand() % 1000001), N = rand() % 999 + 1, i);
-            if (best_experiment_error > abs(final_result.error)) {
-                best_experiment_error = abs(final_result.error);
-                best_experiment_number = i + 1;
+            if (Best_result_error > fabs(final_result.error)) {
+                Best_result_error = final_result.error;
+                Number_experiment = i + 1;
             }
-            Calculating_Mode_2_L(language, final_result, i, N, x, eps);
+            Calculating_Mode_2_L(language, final_result, i, N, X_clone, eps);
         }
     }
+    Best_experiment(language, Number_experiment, Best_result_error);
 }
+
 
 
 #endif 

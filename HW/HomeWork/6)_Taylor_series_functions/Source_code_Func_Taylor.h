@@ -20,9 +20,9 @@ Type_Func func[4];
 // [ENG]  Struct | [RU]  Структура |
 struct Answer
 {
-    long double f;
-    long double error;
-    long double etalon;
+    double f;
+    double error;
+    double etalon;
     int count;
 };
 
@@ -43,6 +43,7 @@ double Get_Value_Eps();
 double Calculating();
 double Calculating_mode_1();
 double Calculating_mode_2();
+double Best_experiment(int language, int Number_experiment, double Best_result_error);
 
 // [ENG] Functions (void) | [RU] Функции (void) |
 void funcs();

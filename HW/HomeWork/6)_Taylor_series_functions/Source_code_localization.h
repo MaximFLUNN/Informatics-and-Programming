@@ -115,5 +115,8 @@ void Calculating_Mode_2_L(int language, struct Answer final_result, int i, int N
     else printf("| Эталонное значение: %.12lf\n| f(x) = %.12lf\n| Разница: %.12lf\n| Количество элементов: %d\n-----------------------------\n", final_result.etalon, final_result.f, final_result.error, final_result.count);
 }
 
-
+double Best_experiment(int language, int Number_experiment, double Best_result_error) {
+    if (language == 1) printf("| Best experiment: №%d -> error: %.12lf\n", Number_experiment, Best_result_error);
+    else printf("| Лучший эксперимент: №%d -> отклонение: %.12lf\n", Number_experiment, Best_result_error);
+}
 #endif 
