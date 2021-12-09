@@ -1,0 +1,14 @@
+﻿  6)_Main_code_Taylor_functions.c
+C:\Users\77777\Desktop\Project station v2\HomeWork\6)_Taylor_series_functions\6)_Main_code_Taylor_functions.c(36,87): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\77777\Desktop\Project station v2\HomeWork\6)_Taylor_series_functions\6)_Main_code_Taylor_functions.c(55,15): warning C4013: time: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\77777\Desktop\Project station v2\HomeWork\6)_Taylor_series_functions\6)_Main_code_Taylor_functions.c(58,19): warning C4305: =: усечение из "double" в "float"
+C:\Users\77777\Desktop\Project station v2\HomeWork\6)_Taylor_series_functions\6)_Main_code_Taylor_functions.c(62,17): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\77777\Desktop\Project station v2\HomeWork\6)_Taylor_series_functions\6)_Main_code_Taylor_functions.c(113,31): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\77777\Desktop\Project station v2\HomeWork\6)_Taylor_series_functions\6)_Main_code_Taylor_functions.c(116,27): warning C4305: =: усечение из "double" в "float"
+C:\Users\77777\Desktop\Project station v2\HomeWork\6)_Taylor_series_functions\6)_Main_code_Taylor_functions.c(121,45): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\77777\Desktop\Project station v2\HomeWork\6)_Taylor_series_functions\6)_Main_code_Taylor_functions.c(194,30): warning C4098: restart: функция типа "void", возвращающая значение
+C:\Users\77777\Desktop\Project station v2\HomeWork\6)_Taylor_series_functions\6)_Main_code_Taylor_functions.c(96): warning C4716: Select_func: должна возвращать значение
+C:\Users\77777\Desktop\Project station v2\HomeWork\6)_Taylor_series_functions\6)_Main_code_Taylor_functions.c(73): warning C4716: Select_language: должна возвращать значение
+C:\Users\77777\Desktop\Project station v2\HomeWork\6)_Taylor_series_functions\6)_Main_code_Taylor_functions.c(84): warning C4716: Select_mode: должна возвращать значение
+C:\Users\77777\Desktop\Project station v2\HomeWork\6)_Taylor_series_functions\6)_Main_code_Taylor_functions.c(130): warning C4716: Select_settings: должна возвращать значение
+  6)_Taylor_series_functions.vcxproj -> C:\Users\77777\Desktop\Project station v2\HomeWork\Debug\6)_Taylor_series_functions.exe

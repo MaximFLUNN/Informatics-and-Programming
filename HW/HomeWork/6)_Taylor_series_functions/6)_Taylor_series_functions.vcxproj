@@ -139,13 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="6)_Source_code_Taylor_series_functions.c" />
-    <ClCompile Include="Source_code_Func_Taylor.c" />
+    <ClCompile Include="6%29_Main_code_Taylor_functions.c" />
+    <ClCompile Include="_code_Func_Taylor.c" />
+    <ClCompile Include="_code_localization.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source_code_Func_Taylor.h" />
-    <ClInclude Include="Source_code_localization.h" />
-    <ClInclude Include="Source_code_Main_Taylor.h" />
+    <ClInclude Include="Header_code_Func_Taylor.h" />
+    <ClInclude Include="Header_code_localization.h" />
+    <ClInclude Include="Header_code_Main_Taylor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
