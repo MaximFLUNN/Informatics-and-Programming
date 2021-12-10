@@ -33,14 +33,14 @@ int main() {
     }
     if (mode == 2) {
         for (i = 0; i < Nmax; i++) {
-            final_result = func[SelectFunc - 1](x, eps = 0.000001 * (rand() % 1000001), N = rand() % 999 + 1, i);
+            final_result = func[SelectFunc - 1](x, eps = 0.000001, N = i + 1, i);
             if (Best_result_error > fabs(final_result.error)) {
                 Best_result_error = final_result.error;
                 Number_experiment = i + 1;
             }
             Calculating_Mode_2_L(language, final_result, i, N, X_clone, eps);
+            if (fabs(final_result.error) <= 0.000001) i = 25;
         }
-        Best_experiment(language, Number_experiment, Best_result_error);
     }
     restart(); // [ENG] Restart capability | [RU] Возможность рестарта |
     return 0;

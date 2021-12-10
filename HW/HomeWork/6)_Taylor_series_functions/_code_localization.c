@@ -39,8 +39,8 @@ void Select_Settings_L_Warning(int language) {
 }
 
 void Select_Settings_L_Default_1(int language, int N, double x, double eps) {
-    if (language == 1) printf("| Default settings selected:\n| Language -> English\n| Сount N -> %d\n| X -> %f\n| Eps -> %f\n-----------------------------\n| Calculating\n", N, x, eps);
-    else printf("| Выбраны стандартные настройки:\n| Язык -> Русский\n| Кол-во N -> %d\n| X -> %f\n| Eps -> %f\n-----------------------------\n| Вычисление \n", N, x, eps);
+    if (language == 1) printf("| Default settings selected:\n| Language -> English\n| Сount N -> %d\n| X -> %f\n| Eps -> %f\n-----------------------------\n", N, x, eps);
+    else printf("| Выбраны стандартные настройки:\n| Язык -> Русский\n| Кол-во N -> %d\n| X -> %f\n| Eps -> %f\n-----------------------------\n", N, x, eps);
 }
 
 void Select_Settings_L_Custom_2(int language) {
@@ -109,13 +109,8 @@ void Calculating_Mode_1_L(int language, struct Answer final_result) {
 }
 
 void Calculating_Mode_2_L(int language, struct Answer final_result, int i, int N, double x, double eps) {
-    if (language == 1) printf("| %d) Experiment Settings:\n| Language -> English\n| Сount N -> %d\n| X -> %f\n| Eps -> %f\n-----------------------------\n| Calculating\n", i + 1, N, x, eps);
-    else printf("-----------------------------\n| %d) Настройки эксперемента:\n| Язык -> Русский\n| Количество N -> %d\n| Значение X -> %f\n| Точность Eps -> %f\n-----------------------------\n| Вычисление\n", i + 1, N, x, eps);
-    if (language == 1) printf("| Etalon value: %.12lf\n| f(x) = %.12lf\n| Error: %.12lf\n| Count of elements: %d\n-----------------------------\n", final_result.etalon, final_result.f, final_result.error, final_result.count);
-    else printf("| Эталонное значение: %.12lf\n| f(x) = %.12lf\n| Разница: %.12lf\n| Количество элементов: %d\n-----------------------------\n", final_result.etalon, final_result.f, final_result.error, final_result.count);
-}
-
-double Best_experiment(int language, int Number_experiment, double Best_result_error) {
-    if (language == 1) printf("| Best experiment: №%d -> error: %.12lf\n", Number_experiment, Best_result_error);
-    else printf("| Лучший эксперимент: №%d -> отклонение: %.12lf\n", Number_experiment, Best_result_error);
+    if (language == 1) printf("| %d) | Сount N -> %d | X -> %f | Eps -> %f |\n", i + 1, N, x, eps);
+    else printf("| %d) | Количество N -> %d | Значение X -> %f | Точность Eps -> %f |\n", i + 1, N, x, eps);
+    if (language == 1) printf("| Etalon value: %.12lf | f(x) = %.12lf | Error: %.12lf | Count of elements: %d\n-----------------------------\n", final_result.etalon, final_result.f, final_result.error, i + 1);
+    else printf("| Эталонное значение: %.12lf | f(x) = %.12lf | Разница: %.12lf | Количество элементов: %d\n-----------------------------\n", final_result.etalon, final_result.f, final_result.error, i + 1);
 }

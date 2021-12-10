@@ -24,7 +24,7 @@ struct Answer Sin(double x, double eps, int N, int i) {
         if (fabs(result.etalon - result.f) < eps) break;
     }
     result.error = fabs(result.etalon - result.f);
-    result.count = i;
+    result.count = i - 1;
     return result;
 }
 

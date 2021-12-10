@@ -35,4 +35,13 @@ struct Answer Sin(double x, double eps, int N, int i);
 struct Answer Cos(double x, double eps, int N, int i);
 struct Answer Exp(double x, double eps, int N, int i);
 struct Answer Tg(double x, double eps, int N, int i);
+
+
+
+
+/*
+ 
+Задание: Добавить функцию, которая вычисляет производную (ввод по математической формуле)
+
+*/
 #endif

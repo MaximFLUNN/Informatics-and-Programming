@@ -2,7 +2,7 @@
                 | Copyright 2021 | MaximFLUNN | Maxim Filatov Group: 3821B1PR2 |
                 |      GitHub profile link: https://github.com/MaximFLUNN      |
 -------------------------------------------------------------------------------------------------------
-                                    | Source localization file |
+                                    | Header localization file |
 */
 #ifndef _localization_h
 #define _localization_h

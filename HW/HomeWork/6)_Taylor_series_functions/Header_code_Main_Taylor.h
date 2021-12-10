@@ -30,7 +30,6 @@ int Get_Value_Nmax();
 // [ENG] Functions (double) | [RU] Функции (double) |
 double Get_Value_X();
 double Get_Value_Eps();
-double Best_experiment(int language, int Number_experiment, double Best_result_error);
 
 // [ENG] Function (void) | [RU] Функция (void) |
 void restart();
