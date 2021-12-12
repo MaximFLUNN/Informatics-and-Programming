@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="6%29_Main_code_Taylor_functions.c" />
+    <ClCompile Include="tinyexpr.c" />
     <ClCompile Include="_code_Func_Taylor.c" />
     <ClCompile Include="_code_localization.c" />
   </ItemGroup>
@@ -147,6 +148,7 @@
     <ClInclude Include="Header_code_Func_Taylor.h" />
     <ClInclude Include="Header_code_localization.h" />
     <ClInclude Include="Header_code_Main_Taylor.h" />
+    <ClInclude Include="tinyexpr.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

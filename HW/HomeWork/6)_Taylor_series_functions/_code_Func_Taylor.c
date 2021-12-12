@@ -67,4 +67,3 @@ struct Answer Tg(double x, double eps, int N, int i) {
     result.count = resultSin.count + resultCos.count;
     return result;
 }
-

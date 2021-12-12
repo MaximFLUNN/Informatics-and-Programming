@@ -10,6 +10,7 @@
 */
 
 #include "Header_code_Main_Taylor.h"
+#include "tinyexpr.h"
 
 // [ENG] Function pointer type | [RU] Тип указателя на функцию |
 typedef struct Answer(*Type_Func) (double, double, int, int);
@@ -19,29 +20,33 @@ int main() {
 
     Select_language(); // [ENG] Language selection | [RU] Выбор языка |
     Select_mode(); // [ENG] Mode selection | [RU] Выбор режима |
-    Select_func(); // [ENG] Function selection | [RU] Выбор функции |
-    Select_settings(); // [ENG] Selecting settings | [RU] Выбор настроек |
+    if (mode != 3) {
+        Select_func(); // [ENG] Function selection | [RU] Выбор функции |
+        Select_settings(); // [ENG] Selecting settings | [RU] Выбор настроек |
 
-    func[0] = Sin;
-    func[1] = Cos;
-    func[2] = Exp;
-    func[3] = Tg;
 
-    if (mode == 1) {
-        final_result = func[SelectFunc - 1](x, eps, N, i);
-        Calculating_Mode_1_L(language, final_result);
-    }
-    if (mode == 2) {
-        for (i = 0; i < Nmax; i++) {
-            final_result = func[SelectFunc - 1](x, eps = 0.000001, N = i + 1, i);
-            if (Best_result_error > fabs(final_result.error)) {
-                Best_result_error = final_result.error;
-                Number_experiment = i + 1;
+        func[0] = Sin;
+        func[1] = Cos;
+        func[2] = Exp;
+        func[3] = Tg;
+
+        if (mode == 1) {
+            final_result = func[SelectFunc - 1](x, eps, N, i);
+            Calculating_Mode_1_L(language, final_result);
+        }
+        if (mode == 2) {
+            for (i = 0; i < Nmax; i++) {
+                final_result = func[SelectFunc - 1](x, eps = 0.000001, N = i + 1, i);
+                if (Best_result_error > fabs(final_result.error)) {
+                    Best_result_error = final_result.error;
+                    Number_experiment = i + 1;
+                }
+                Calculating_Mode_2_L(language, final_result, i, N, X_clone, eps);
+                if (fabs(final_result.error) <= 0.000001) i = 25;
             }
-            Calculating_Mode_2_L(language, final_result, i, N, X_clone, eps);
-            if (fabs(final_result.error) <= 0.000001) i = 25;
         }
     }
+    else Fx_find(language);
     restart(); // [ENG] Restart capability | [RU] Возможность рестарта |
     return 0;
 }
@@ -77,7 +82,7 @@ int Select_mode() {
     if (scanf("%d", &mode) != 1) {
         while (fgetc(stdin) != '\n') continue;
     }
-    if (!(mode == 1 || mode == 2)) {
+    if (!(mode == 1 || mode == 2 || mode == 3)) {
         Select_Mode_L_Warning(language);
         Select_mode();
     }
@@ -193,4 +198,101 @@ void restart() {
     }
     else if (x == 0) return 0;
     else if (x == 1) main();
+}
+
+double f(double x)
+{
+    //здесь функция, производную которой нужно найти
+    return x * x;
+}
+
+void Fx_find(int language)
+{
+    clear_input_buffer();
+    // переменные
+    double x, h, fl, fr, fc, f2;
+
+    x = 2; // точка, в которой вычисляем производную
+    h = 0.000001; // шаг, с которым вычисляем производную
+
+    // вычисление первой производной самым точным способом
+    fc = (f(x + h) - f(x - h)) / (2 * h); // центральная
+
+    // вычисление второй производной
+    f2 = (f(x + h) - 2 * f(x) + f(x - h)) / (h * h);
+
+    // выводим результаты на экран
+    test_start_fx_find(language, x);
+    printf("| f`(x) = %.12lf\n", fc);
+    printf("| f``(x) = %.12lf\n", f2);
+
+    // переменные
+    char equation[255];
+    double X_x;
+    int size;
+    equation_fx_find(language);
+    gets(equation);
+    size = strlen(equation);
+    x_fx_find(language);
+    scanf("%lf", &X_x);
+
+    // вычисление первой производной самым точным способом
+    fc = (fx(X_x + h, size, equation) - fx(X_x - h, size, equation)) / (2 * h); // центральная
+
+    // вычисление второй производной
+    f2 = (fx(X_x + h, size, equation) - 2 * fx(X_x, size, equation) + fx(X_x - h, size, equation)) / (h * h);
+
+    // выводим результаты на экран
+    printf("| x = %lf\n", X_x);
+    printf("| f`(x) = %.12lf\n", fc);
+    printf("| f``(x) = %.12lf\n", f2);
+}
+
+double fx(double X, int size, char* equation) {
+    char X_line[55];
+    int size_x, count = 0, Xx;
+    sprintf(X_line, "%lf", X);
+    size_x = strlen(X_line);
+    // получение уравнения
+
+    // выделение памяти под динамическую копию уравнения
+    char* tmp = (char*)malloc(size * sizeof(char));
+    for (int i = 0; i < size; i++) {
+        tmp[i] = equation[i];
+    }
+    tmp[size] = 0;
+    // выделение памяти под динамическую копию х
+    char* tmp_x = (char*)malloc(size_x * sizeof(char));
+    for (int i = 0; i < size_x; i++) {
+        tmp_x[i] = X_line[i];
+    }
+    tmp_x[size_x] = 0;
+    // подсчёт кол-ва х в уравнении
+    for (int i = 0; i < size; i++) {
+        if (tmp[i] == 'x') count++;
+    }
+    // выделение памяти под изменённое уравнение
+    int s = size + (count * (size_x - 1));
+    char* tmp_xX = (char*)malloc(s * sizeof(char));
+    // замена х на число
+    for (int i = 0, j = 0; i < size; i++) {
+        if (tmp[i] != 'x') {
+            tmp_xX[j] = tmp[i];
+            j++;
+        }
+        else if (tmp[i] == 'x') {
+            for (int g = 0; g < size_x; g++, j++) {
+                tmp_xX[j] = X_line[g];
+            }
+        }
+    }
+    tmp_xX[s] = 0;
+    double answer = te_interp(tmp_xX, 0);
+    return answer;
+}
+
+int clear_input_buffer(void) {
+    int ch;
+    while (((ch = getchar()) != EOF) && (ch != '\n')) /* void */;
+    return ch;
 }

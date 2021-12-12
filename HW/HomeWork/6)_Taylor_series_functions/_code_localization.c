@@ -9,8 +9,8 @@
 
 // [ENG] Localization | [RU] Функции локализации |
 void Select_Mode_L(int language) {
-    if (language == 1) printf("| Select mode (One-time settlement - 1 | Serial experiment - 2)\n| Enter: ");
-    else printf("| Выберите режим (Единоразовый эксперемент - 1 | Серийный эксперимент - 2)\n| Введите: ");
+    if (language == 1) printf("| Select mode (One-time settlement - 1 | Serial experiment - 2 | Derivative calculation - 3)\n| Enter: ");
+    else printf("| Выберите режим (Единоразовый эксперемент - 1 | Серийный эксперимент - 2 | Рассчёт производной - 3)\n| Введите: ");
 }
 
 void Select_Mode_L_Warning(int language) {
@@ -94,8 +94,8 @@ void Get_Value_Nmax_L_Warning(int language) {
 }
 
 void Restart_L(int language) {
-    if (language == 1) printf("|\n|\n| Restart? (1/0): ");
-    else printf("|\n|\n| Перезапустить? (1/0): ");
+    if (language == 1) printf("|\n| Restart? (1/0): ");
+    else printf("|\n| Перезапустить? (1/0): ");
 }
 
 void Restart_L_Warning(int language) {
@@ -113,4 +113,19 @@ void Calculating_Mode_2_L(int language, struct Answer final_result, int i, int N
     else printf("| %d) | Количество N -> %d | Значение X -> %f | Точность Eps -> %f |\n", i + 1, N, x, eps);
     if (language == 1) printf("| Etalon value: %.12lf | f(x) = %.12lf | Error: %.12lf | Count of elements: %d\n-----------------------------\n", final_result.etalon, final_result.f, final_result.error, i + 1);
     else printf("| Эталонное значение: %.12lf | f(x) = %.12lf | Разница: %.12lf | Количество элементов: %d\n-----------------------------\n", final_result.etalon, final_result.f, final_result.error, i + 1);
+}
+
+void test_start_fx_find(int language, double x) {
+    if (language == 1) printf("| Tesr start (x * x): \n| x = %lf\n", x);
+    else printf("| Тестовый запуск (x * x): \n| x = %lf\n", x);
+}
+
+void equation_fx_find(int language) {
+    if (language == 1) printf("| \n| Enter the equation: ");
+    else printf("| \n| Введите уравнение: ");
+}
+
+void x_fx_find(int language) {
+    if (language == 1) printf("| Enter 'x': ");
+    else printf("| Введите 'x': ");
 }

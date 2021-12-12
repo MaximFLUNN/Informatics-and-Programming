@@ -14,8 +14,8 @@
 
 // [ENG] Variables | [RU] Переменные |
 float eps;
-int N, SelectFunc, SelectMode, i, language, mode, settings, Nmax, Number_experiment;;
-double x, xtmp, X_clone, Best_result_error;;
+int N, SelectFunc, SelectMode, i, language, mode, settings, Nmax, Number_experiment;
+double x, xtmp, X_clone, Best_result_error;
 
 
 
@@ -26,12 +26,17 @@ int Select_func();
 int Select_settings();
 int Get_Value_N();
 int Get_Value_Nmax();
+int clear_input_buffer();
 
 // [ENG] Functions (double) | [RU] Функции (double) |
 double Get_Value_X();
 double Get_Value_Eps();
+double f();
+double fx();
+
 
 // [ENG] Function (void) | [RU] Функция (void) |
 void restart();
+void Fx_find();
 
 #endif 

@@ -29,5 +29,8 @@ void Restart_L(int language);
 void Restart_L_Warning(int language);
 void Calculating_Mode_1_L(int language, struct Answer final_result);
 void Calculating_Mode_2_L(int language, struct Answer final_result, int i, int N, double x, double eps);
+void test_start_fx_find(int language, double x);
+void equation_fx_find(int language);
+void x_fx_find(int language);
 
 #endif 
