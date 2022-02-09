@@ -1,0 +1,6 @@
+﻿  Game.cpp
+C:\Users\максим\Desktop\OOP\IntrodactionIntoOOP\Game.cpp(57,23): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\максим\Desktop\OOP\IntrodactionIntoOOP\Game.cpp(72,24): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+  main.cpp
+  Создание кода...
+  IntrodactionIntoOOP.vcxproj -> C:\Users\максим\Desktop\OOP\x64\Debug\IntrodactionIntoOOP.exe
