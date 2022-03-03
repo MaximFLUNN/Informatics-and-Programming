@@ -1,0 +1,8 @@
+﻿  Main.cpp
+C:\Users\itmm-2112-a\Desktop\oopclassmilles\OOPclassMILLEs\OOPclassMILLEs\Main.cpp(36,68): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\itmm-2112-a\Desktop\oopclassmilles\OOPclassMILLEs\OOPclassMILLEs\Main.cpp(42,72): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\itmm-2112-a\Desktop\oopclassmilles\OOPclassMILLEs\OOPclassMILLEs\Main.cpp(49,79): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\itmm-2112-a\Desktop\oopclassmilles\OOPclassMILLEs\OOPclassMILLEs\Main.cpp(55,79): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\itmm-2112-a\Desktop\oopclassmilles\OOPclassMILLEs\OOPclassMILLEs\Main.cpp(61,79): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\itmm-2112-a\Desktop\oopclassmilles\OOPclassMILLEs\OOPclassMILLEs\Main.cpp(67,79): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+  OOPclassMILLEs.vcxproj -> C:\Users\itmm-2112-a\Desktop\oopclassmilles\OOPclassMILLEs\Debug\OOPclassMILLEs.exe
